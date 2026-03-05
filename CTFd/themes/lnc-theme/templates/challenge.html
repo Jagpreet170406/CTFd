@@ -1,4 +1,4 @@
-<div :class="getStyles()" role="document" x-data="Challenge" x-init='id = {{ challenge.id }}; max_attempts = {{ max_attempts }}; attempts = {{ attempts }}; ratingValue = {{ (rating.get('value') if rating else None) | tojson }}; ratingReview = {{ (rating.get('review', '') if rating else None) | tojson }};'>
+<div :class="getStyles()" role="document" x-data="Challenge" x-init='id = {{ challenge.id }}; max_attempts = {{ max_attempts }}; attempts = {{ attempts }}; ratingValue = {{ (rating.get("value") if rating else None) | tojson }}; ratingReview = {{ (rating.get("review", "") if rating else None) | tojson }};'>
   <div class="modal-content">
     <div class="modal-body py-4 px-4 px-sm-5">
 
@@ -53,7 +53,6 @@
             <h3 class="challenge-value text-center">
               {{ challenge.value }}
             </h3>
-
 
             {% if tags %}
               <div class="challenge-tags text-center pt-2 pb-3">
@@ -193,7 +192,6 @@
             <div class="row notification-row">
               <div class="col-12">
                 <template x-if="response">
-                  {# This alert is re-used for all alerts, so it's important not to make it dismissible #}
                   <div class="alert text-center w-100 mt-3"
                       :class="{
                         'alert-success': response.data.status == 'correct',

@@ -39,9 +39,6 @@
 
   {{ Configs.theme_header }}
 
-  <!-- ═══════════════════════════════════════════════ -->
-  <!--              LnC 6.0 GLOBAL THEME              -->
-  <!-- ═══════════════════════════════════════════════ -->
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@300;400;500;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
 
   <style>
@@ -51,112 +48,30 @@
       --blue: #00d4ff;
       --purple: #9b30ff;
       --dark: #020408;
-      --darker: #010205;
       --mid: #0a0f1a;
       --text: #c8d8e8;
       --dim: #4a5a6a;
     }
 
-    /* ── RESET & BASE ── */
-    *, *::before, *::after { box-sizing: border-box; }
-
+    /* ── BASE ── */
     html, body {
-      background: var(--dark) !important;
+      background-color: var(--dark) !important;
       color: var(--text) !important;
       font-family: 'Rajdhani', sans-serif !important;
-      min-height: 100vh;
-    }
-
-    /* Override CTFd bootstrap bg */
-    .bg-white, .bg-light { background: var(--mid) !important; }
-    .text-dark, .text-body { color: var(--text) !important; }
-
-    /* ── SCANLINES ── */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background: repeating-linear-gradient(
-        0deg,
-        transparent,
-        transparent 2px,
-        rgba(0,0,0,0.13) 2px,
-        rgba(0,0,0,0.13) 4px
-      );
-      pointer-events: none !important;
-      z-index: 9999;
-    }
-
-    /* ── NOISE GRAIN ── */
-    body::after {
-      content: '';
-      position: fixed;
-      inset: -50%;
-      width: 200%; height: 200%;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-      pointer-events: none !important;
-      z-index: 9998;
-      opacity: 0.25;
-      animation: lnc-grain 0.5s steps(1) infinite;
-    }
-
-    @keyframes lnc-grain {
-      0%,100% { transform: translate(0,0); }
-      10% { transform: translate(-2%,-3%); }
-      20% { transform: translate(3%,2%); }
-      30% { transform: translate(-1%,4%); }
-      40% { transform: translate(4%,-1%); }
-      50% { transform: translate(-3%,3%); }
-      60% { transform: translate(2%,-4%); }
-      70% { transform: translate(-4%,1%); }
-      80% { transform: translate(1%,-2%); }
-      90% { transform: translate(-2%,4%); }
-    }
-
-    /* ── GLOBAL BG GLOW ── */
-    main[role="main"] {
-      position: relative;
-      background:
-        radial-gradient(ellipse 70% 50% at 50% 0%, rgba(155,48,255,0.07) 0%, transparent 60%),
-        radial-gradient(ellipse 40% 30% at 10% 80%, rgba(255,26,46,0.05) 0%, transparent 60%),
-        radial-gradient(ellipse 40% 30% at 90% 20%, rgba(0,212,255,0.05) 0%, transparent 60%);
-    }
-
-    /* ── GRID BG ── */
-    main[role="main"]::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(155,48,255,0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(155,48,255,0.04) 1px, transparent 1px);
-      background-size: 60px 60px;
-      pointer-events: none !important;
-      z-index: 0;
-      mask-image: radial-gradient(ellipse 100% 100% at 50% 0%, black 30%, transparent 100%);
     }
 
     /* ── NAVBAR ── */
-    .navbar, nav.navbar {
-      background: rgba(2,4,8,0.97) !important;
+    .navbar {
+      background-color: rgba(2,4,8,0.97) !important;
       border-bottom: 1px solid rgba(155,48,255,0.25) !important;
-      font-family: 'Share Tech Mono', monospace !important;
-      padding: 14px 40px !important;
-      position: sticky !important;
-      top: 0 !important;
-      z-index: 1000 !important;
-      backdrop-filter: blur(8px);
     }
 
     .navbar-brand {
       font-family: 'Orbitron', monospace !important;
-      font-size: 1.3rem !important;
       font-weight: 900 !important;
       color: #fff !important;
       letter-spacing: 0.05em !important;
     }
-
-    .navbar-brand span { color: var(--red); }
 
     .navbar-nav .nav-link {
       font-family: 'Share Tech Mono', monospace !important;
@@ -165,7 +80,6 @@
       text-transform: uppercase !important;
       color: var(--dim) !important;
       transition: color 0.2s !important;
-      padding: 8px 16px !important;
     }
 
     .navbar-nav .nav-link:hover,
@@ -173,289 +87,14 @@
       color: var(--blue) !important;
     }
 
-    .navbar-nav .nav-link::before {
-      content: '> ';
-      color: var(--purple);
-      opacity: 0;
-      transition: opacity 0.2s;
+    /* ── BACKGROUND ── */
+    body {
+      background-image:
+        radial-gradient(ellipse 70% 50% at 50% 0%, rgba(155,48,255,0.07) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 30% at 10% 80%, rgba(255,26,46,0.05) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 30% at 90% 20%, rgba(0,212,255,0.05) 0%, transparent 60%) !important;
+      background-attachment: fixed !important;
     }
-
-    .navbar-nav .nav-link:hover::before { opacity: 1; }
-
-    .navbar-toggler {
-      border-color: rgba(155,48,255,0.4) !important;
-    }
-
-    .navbar-toggler-icon {
-      filter: invert(1);
-    }
-
-    /* ── BUTTONS ── */
-    .btn-primary, .btn-success {
-      font-family: 'Share Tech Mono', monospace !important;
-      font-size: 0.78rem !important;
-      letter-spacing: 0.15em !important;
-      text-transform: uppercase !important;
-      background: var(--red) !important;
-      border: none !important;
-      color: #fff !important;
-      clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
-      transition: background 0.2s !important;
-      padding: 10px 24px !important;
-    }
-
-    .btn-primary:hover, .btn-success:hover {
-      background: #ff3344 !important;
-    }
-
-    .btn-secondary, .btn-outline-secondary {
-      font-family: 'Share Tech Mono', monospace !important;
-      font-size: 0.75rem !important;
-      letter-spacing: 0.12em !important;
-      text-transform: uppercase !important;
-      background: transparent !important;
-      border: 1px solid rgba(155,48,255,0.35) !important;
-      color: var(--dim) !important;
-      transition: color 0.2s, border-color 0.2s !important;
-    }
-
-    .btn-secondary:hover, .btn-outline-secondary:hover {
-      color: var(--purple) !important;
-      border-color: var(--purple) !important;
-    }
-
-    /* ── CARDS ── */
-    .card {
-      background: rgba(10,15,26,0.85) !important;
-      border: 1px solid rgba(155,48,255,0.15) !important;
-      color: var(--text) !important;
-      border-radius: 0 !important;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--red), var(--purple), var(--blue));
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-
-    .card:hover::before { opacity: 1; }
-
-    .card-header {
-      background: rgba(155,48,255,0.08) !important;
-      border-bottom: 1px solid rgba(155,48,255,0.15) !important;
-      font-family: 'Orbitron', monospace !important;
-      font-size: 0.85rem !important;
-      letter-spacing: 0.08em !important;
-      color: #fff !important;
-    }
-
-    .card-body { color: var(--text) !important; }
-
-    /* ── FORMS ── */
-    .form-control, .form-select, input, select, textarea {
-      background: rgba(2,4,8,0.9) !important;
-      border: 1px solid rgba(155,48,255,0.25) !important;
-      color: var(--text) !important;
-      font-family: 'Share Tech Mono', monospace !important;
-      font-size: 0.85rem !important;
-      border-radius: 0 !important;
-      padding: 10px 14px !important;
-      transition: border-color 0.2s, box-shadow 0.2s !important;
-    }
-
-    .form-control:focus, .form-select:focus, input:focus, textarea:focus {
-      border-color: var(--purple) !important;
-      box-shadow: 0 0 12px rgba(155,48,255,0.15) !important;
-      background: rgba(2,4,8,0.95) !important;
-      color: var(--text) !important;
-      outline: none !important;
-    }
-
-    .form-control::placeholder, input::placeholder, textarea::placeholder {
-      color: var(--dim) !important;
-    }
-
-    label, .form-label {
-      font-family: 'Share Tech Mono', monospace !important;
-      font-size: 0.68rem !important;
-      letter-spacing: 0.2em !important;
-      text-transform: uppercase !important;
-      color: var(--purple) !important;
-      margin-bottom: 6px !important;
-    }
-
-    /* ── TABLES ── */
-    .table {
-      color: var(--text) !important;
-      font-family: 'Rajdhani', sans-serif !important;
-      border-color: rgba(155,48,255,0.1) !important;
-    }
-
-    .table thead th {
-      font-family: 'Share Tech Mono', monospace !important;
-      font-size: 0.65rem !important;
-      letter-spacing: 0.2em !important;
-      text-transform: uppercase !important;
-      color: var(--dim) !important;
-      background: rgba(10,15,26,0.9) !important;
-      border-color: rgba(155,48,255,0.2) !important;
-      font-weight: 400 !important;
-    }
-
-    .table tbody tr {
-      border-color: rgba(155,48,255,0.06) !important;
-      transition: background 0.15s;
-    }
-
-    .table tbody tr:hover {
-      background: rgba(155,48,255,0.05) !important;
-    }
-
-    .table tbody td {
-      border-color: rgba(155,48,255,0.06) !important;
-      background: transparent !important;
-      vertical-align: middle;
-    }
-
-    .table-striped tbody tr:nth-of-type(odd) {
-      background: rgba(155,48,255,0.02) !important;
-    }
-
-    /* ── MODALS ── */
-    .modal-content {
-      background: var(--mid) !important;
-      border: 1px solid rgba(155,48,255,0.3) !important;
-      border-radius: 0 !important;
-      color: var(--text) !important;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .modal-content::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--red), var(--purple), var(--blue));
-    }
-
-    .modal-header {
-      background: rgba(155,48,255,0.06) !important;
-      border-bottom: 1px solid rgba(155,48,255,0.15) !important;
-    }
-
-    .modal-title {
-      font-family: 'Orbitron', monospace !important;
-      font-size: 1rem !important;
-      font-weight: 700 !important;
-      color: #fff !important;
-      letter-spacing: 0.05em !important;
-    }
-
-    .modal-footer {
-      border-top: 1px solid rgba(155,48,255,0.15) !important;
-      background: rgba(2,4,8,0.5) !important;
-    }
-
-    .btn-close {
-      filter: invert(1) !important;
-      opacity: 0.5 !important;
-    }
-
-    .btn-close:hover { opacity: 1 !important; }
-
-    .modal-backdrop {
-      background: rgba(2,4,8,0.85) !important;
-    }
-
-    /* ── ALERTS ── */
-    .alert {
-      border-radius: 0 !important;
-      font-family: 'Share Tech Mono', monospace !important;
-      font-size: 0.78rem !important;
-      letter-spacing: 0.05em !important;
-      border-left-width: 3px !important;
-    }
-
-    .alert-success {
-      background: rgba(0,255,136,0.07) !important;
-      border-color: #00ff88 !important;
-      color: #00ff88 !important;
-    }
-
-    .alert-danger, .alert-error {
-      background: rgba(255,26,46,0.08) !important;
-      border-color: var(--red) !important;
-      color: var(--red) !important;
-    }
-
-    .alert-warning {
-      background: rgba(255,204,0,0.07) !important;
-      border-color: #ffcc00 !important;
-      color: #ffcc00 !important;
-    }
-
-    .alert-info {
-      background: rgba(0,212,255,0.07) !important;
-      border-color: var(--blue) !important;
-      color: var(--blue) !important;
-    }
-
-    /* ── BADGES ── */
-    .badge {
-      font-family: 'Share Tech Mono', monospace !important;
-      font-size: 0.6rem !important;
-      letter-spacing: 0.15em !important;
-      border-radius: 0 !important;
-      padding: 4px 8px !important;
-    }
-
-    .badge.bg-success { background: rgba(0,255,136,0.15) !important; color: #00ff88 !important; border: 1px solid rgba(0,255,136,0.3) !important; }
-    .badge.bg-danger  { background: rgba(255,26,46,0.15) !important;  color: var(--red) !important; border: 1px solid rgba(255,26,46,0.3) !important; }
-    .badge.bg-primary { background: rgba(155,48,255,0.15) !important; color: var(--purple) !important; border: 1px solid rgba(155,48,255,0.3) !important; }
-    .badge.bg-info    { background: rgba(0,212,255,0.15) !important;  color: var(--blue) !important; border: 1px solid rgba(0,212,255,0.3) !important; }
-
-    /* ── PAGINATION ── */
-    .page-link {
-      background: rgba(10,15,26,0.8) !important;
-      border-color: rgba(155,48,255,0.2) !important;
-      color: var(--dim) !important;
-      font-family: 'Share Tech Mono', monospace !important;
-      font-size: 0.72rem !important;
-      border-radius: 0 !important;
-      transition: all 0.2s !important;
-    }
-
-    .page-link:hover { color: var(--purple) !important; border-color: var(--purple) !important; }
-    .page-item.active .page-link { background: var(--red) !important; border-color: var(--red) !important; color: #fff !important; }
-
-    /* ── FOOTER ── */
-    .footer {
-      background: rgba(2,4,8,0.95) !important;
-      border-top: 1px solid rgba(155,48,255,0.12) !important;
-      padding: 24px 0 !important;
-    }
-
-    .footer a, .footer .text-muted, .footer small {
-      font-family: 'Share Tech Mono', monospace !important;
-      font-size: 0.65rem !important;
-      letter-spacing: 0.15em !important;
-      color: var(--dim) !important;
-    }
-
-    .footer a:hover { color: var(--purple) !important; }
-
-    /* ── SCROLLBAR ── */
-    ::-webkit-scrollbar { width: 6px; height: 6px; }
-    ::-webkit-scrollbar-track { background: var(--darker); }
-    ::-webkit-scrollbar-thumb { background: rgba(155,48,255,0.4); }
-    ::-webkit-scrollbar-thumb:hover { background: var(--purple); }
 
     /* ── HEADINGS ── */
     h1, h2, h3, h4, h5, h6 {
@@ -464,42 +103,291 @@
     }
 
     /* ── LINKS ── */
-    a { color: var(--blue) !important; transition: color 0.2s !important; }
+    a { color: var(--blue) !important; }
     a:hover { color: var(--purple) !important; }
 
-    /* ── DROPDOWN ── */
-    .dropdown-menu {
-      background: rgba(10,15,26,0.98) !important;
-      border: 1px solid rgba(155,48,255,0.2) !important;
+    /* ── BUTTONS ── */
+    .btn-primary {
+      background-color: var(--red) !important;
+      border-color: var(--red) !important;
+      font-family: 'Share Tech Mono', monospace !important;
+      letter-spacing: 0.1em !important;
+      text-transform: uppercase !important;
       border-radius: 0 !important;
     }
-
-    .dropdown-item {
-      font-family: 'Share Tech Mono', monospace !important;
-      font-size: 0.72rem !important;
-      letter-spacing: 0.1em !important;
-      color: var(--dim) !important;
-      transition: color 0.2s, background 0.2s !important;
+    .btn-primary:hover {
+      background-color: #ff3344 !important;
+      border-color: #ff3344 !important;
     }
 
-    .dropdown-item:hover {
-      background: rgba(155,48,255,0.08) !important;
+    .btn-secondary, .btn-outline-secondary {
+      font-family: 'Share Tech Mono', monospace !important;
+      letter-spacing: 0.1em !important;
+      text-transform: uppercase !important;
+      border-radius: 0 !important;
+      color: var(--text) !important;
+      border-color: rgba(155,48,255,0.4) !important;
+      background-color: transparent !important;
+    }
+    .btn-secondary:hover, .btn-outline-secondary:hover {
+      background-color: rgba(155,48,255,0.1) !important;
+      color: var(--purple) !important;
+      border-color: var(--purple) !important;
+    }
+
+    .btn-dark {
+      background-color: var(--mid) !important;
+      border-color: rgba(155,48,255,0.2) !important;
+      border-radius: 0 !important;
+      color: var(--text) !important;
+    }
+    .btn-dark:hover {
+      background-color: rgba(155,48,255,0.1) !important;
+      border-color: rgba(155,48,255,0.5) !important;
+    }
+
+    .btn-info {
+      background-color: rgba(0,212,255,0.1) !important;
+      border-color: rgba(0,212,255,0.3) !important;
+      color: var(--blue) !important;
+      border-radius: 0 !important;
+      font-family: 'Share Tech Mono', monospace !important;
+      letter-spacing: 0.1em !important;
+    }
+    .btn-info:hover {
+      background-color: rgba(0,212,255,0.2) !important;
+      color: #fff !important;
+    }
+
+    /* ── CARDS ── */
+    .card {
+      background-color: var(--mid) !important;
+      border-color: rgba(155,48,255,0.2) !important;
+      border-radius: 0 !important;
       color: var(--text) !important;
     }
 
+    .card-header {
+      background-color: rgba(155,48,255,0.08) !important;
+      border-bottom-color: rgba(155,48,255,0.2) !important;
+      font-family: 'Orbitron', monospace !important;
+      color: #fff !important;
+    }
+
+    /* ── FORMS ── */
+    .form-control, .form-select {
+      background-color: rgba(2,4,8,0.9) !important;
+      border-color: rgba(155,48,255,0.3) !important;
+      color: var(--text) !important;
+      border-radius: 0 !important;
+      font-family: 'Share Tech Mono', monospace !important;
+    }
+    .form-control:focus, .form-select:focus {
+      background-color: rgba(2,4,8,0.95) !important;
+      border-color: var(--purple) !important;
+      color: var(--text) !important;
+      box-shadow: 0 0 0 0.2rem rgba(155,48,255,0.15) !important;
+    }
+    .form-control::placeholder { color: var(--dim) !important; }
+
+    label, .form-label {
+      font-family: 'Share Tech Mono', monospace !important;
+      font-size: 0.72rem !important;
+      letter-spacing: 0.15em !important;
+      text-transform: uppercase !important;
+      color: var(--purple) !important;
+    }
+
+    /* ── TABLES ── */
+    .table {
+      color: var(--text) !important;
+    }
+    .table thead th {
+      font-family: 'Share Tech Mono', monospace !important;
+      font-size: 0.65rem !important;
+      letter-spacing: 0.2em !important;
+      text-transform: uppercase !important;
+      color: var(--dim) !important;
+      border-color: rgba(155,48,255,0.2) !important;
+      background-color: var(--mid) !important;
+      font-weight: 400 !important;
+    }
+    .table tbody td {
+      border-color: rgba(155,48,255,0.08) !important;
+      color: var(--text) !important;
+    }
+    .table tbody tr:hover {
+      background-color: rgba(155,48,255,0.05) !important;
+    }
+    .table-striped tbody tr:nth-of-type(odd) {
+      background-color: rgba(155,48,255,0.02) !important;
+    }
+
+    /* ── MODALS ── */
+    .modal-content {
+      background-color: var(--mid) !important;
+      border-color: rgba(155,48,255,0.3) !important;
+      border-radius: 0 !important;
+      border-top: 2px solid var(--red) !important;
+      color: var(--text) !important;
+    }
+    .modal-header {
+      background-color: rgba(155,48,255,0.06) !important;
+      border-bottom-color: rgba(155,48,255,0.15) !important;
+    }
+    .modal-footer {
+      border-top-color: rgba(155,48,255,0.15) !important;
+    }
+    .modal-title {
+      font-family: 'Orbitron', monospace !important;
+      color: #fff !important;
+    }
+    .modal-backdrop {
+      background-color: rgba(2,4,8,0.85) !important;
+    }
+
+    /* ── ALERTS ── */
+    .alert { border-radius: 0 !important; font-family: 'Share Tech Mono', monospace !important; font-size: 0.78rem !important; }
+    .alert-success { background-color: rgba(0,255,136,0.07) !important; border-color: #00ff88 !important; color: #00ff88 !important; }
+    .alert-danger  { background-color: rgba(255,26,46,0.08) !important;  border-color: var(--red) !important; color: var(--red) !important; }
+    .alert-warning { background-color: rgba(255,204,0,0.07) !important;  border-color: #ffcc00 !important; color: #ffcc00 !important; }
+    .alert-info    { background-color: rgba(0,212,255,0.07) !important;  border-color: var(--blue) !important; color: var(--blue) !important; }
+
+    /* ── BADGES ── */
+    .badge { border-radius: 0 !important; font-family: 'Share Tech Mono', monospace !important; font-size: 0.62rem !important; letter-spacing: 0.1em !important; }
+    .bg-info    { background-color: rgba(0,212,255,0.15) !important; color: var(--blue) !important; border: 1px solid rgba(0,212,255,0.3) !important; }
+    .bg-success { background-color: rgba(0,255,136,0.15) !important; color: #00ff88 !important; border: 1px solid rgba(0,255,136,0.3) !important; }
+    .bg-danger  { background-color: rgba(255,26,46,0.15) !important;  color: var(--red) !important; border: 1px solid rgba(255,26,46,0.3) !important; }
+    .bg-primary { background-color: rgba(155,48,255,0.15) !important; color: var(--purple) !important; border: 1px solid rgba(155,48,255,0.3) !important; }
+
+    /* ── NAV TABS ── */
+    .nav-tabs { border-bottom-color: rgba(155,48,255,0.2) !important; }
+    .nav-tabs .nav-link {
+      font-family: 'Share Tech Mono', monospace !important;
+      font-size: 0.72rem !important;
+      letter-spacing: 0.15em !important;
+      text-transform: uppercase !important;
+      color: var(--dim) !important;
+      border-radius: 0 !important;
+      border-color: transparent !important;
+    }
+    .nav-tabs .nav-link:hover { color: var(--text) !important; border-color: transparent !important; }
+    .nav-tabs .nav-link.active {
+      background-color: rgba(155,48,255,0.08) !important;
+      border-color: rgba(155,48,255,0.2) rgba(155,48,255,0.2) transparent !important;
+      color: #fff !important;
+    }
+
+    /* ── DROPDOWNS ── */
+    .dropdown-menu {
+      background-color: rgba(10,15,26,0.98) !important;
+      border-color: rgba(155,48,255,0.2) !important;
+      border-radius: 0 !important;
+    }
+    .dropdown-item {
+      font-family: 'Share Tech Mono', monospace !important;
+      font-size: 0.72rem !important;
+      letter-spacing: 0.08em !important;
+      color: var(--dim) !important;
+    }
+    .dropdown-item:hover {
+      background-color: rgba(155,48,255,0.08) !important;
+      color: var(--text) !important;
+    }
     .dropdown-divider { border-color: rgba(155,48,255,0.15) !important; }
 
-    /* ── MISC OVERRIDES ── */
-    .container, .container-fluid { position: relative; z-index: 1; }
+    /* ── PAGINATION ── */
+    .page-link {
+      background-color: var(--mid) !important;
+      border-color: rgba(155,48,255,0.2) !important;
+      color: var(--dim) !important;
+      border-radius: 0 !important;
+      font-family: 'Share Tech Mono', monospace !important;
+    }
+    .page-link:hover { color: var(--purple) !important; border-color: var(--purple) !important; }
+    .page-item.active .page-link { background-color: var(--red) !important; border-color: var(--red) !important; color: #fff !important; }
+
+    /* ── CHALLENGE CARDS ── */
+    .challenge-button {
+      border-top: 2px solid rgba(155,48,255,0.3) !important;
+      transition: border-color 0.2s, background-color 0.2s !important;
+    }
+    .challenge-button:hover {
+      border-top-color: var(--red) !important;
+      background-color: rgba(155,48,255,0.08) !important;
+    }
+    .challenge-solved {
+      border-top-color: #00ff88 !important;
+      background-color: rgba(0,255,136,0.04) !important;
+    }
+    .challenge-inner p {
+      font-family: 'Orbitron', monospace !important;
+      font-size: 0.78rem !important;
+      color: #fff !important;
+    }
+    .challenge-inner span {
+      font-family: 'Share Tech Mono', monospace !important;
+      color: var(--red) !important;
+      font-size: 1.1rem !important;
+    }
+
+    /* ── CHALLENGE MODAL CONTENT ── */
+    .challenge-name {
+      font-family: 'Orbitron', monospace !important;
+      color: #fff !important;
+    }
+    .challenge-value {
+      font-family: 'Orbitron', monospace !important;
+      color: var(--red) !important;
+    }
+    .challenge-desc {
+      font-family: 'Rajdhani', sans-serif !important;
+      color: var(--text) !important;
+      border-left: 2px solid rgba(155,48,255,0.4);
+      padding-left: 12px;
+      display: block;
+    }
+    .challenge-tag {
+      font-family: 'Share Tech Mono', monospace !important;
+      font-size: 0.62rem !important;
+      border-radius: 0 !important;
+    }
+
+    /* ── MISC ── */
     hr { border-color: rgba(155,48,255,0.15) !important; }
     .text-muted { color: var(--dim) !important; }
-    .border { border-color: rgba(155,48,255,0.2) !important; }
-    code, pre {
+    code {
       font-family: 'Share Tech Mono', monospace !important;
       color: var(--blue) !important;
-      background: rgba(0,212,255,0.06) !important;
-      border: 1px solid rgba(0,212,255,0.15) !important;
-      padding: 2px 6px !important;
+      background-color: rgba(0,212,255,0.07) !important;
+    }
+    .footer {
+      border-top: 1px solid rgba(155,48,255,0.12) !important;
+      background-color: rgba(2,4,8,0.9) !important;
+    }
+    .footer a, .footer .text-muted {
+      font-family: 'Share Tech Mono', monospace !important;
+      font-size: 0.65rem !important;
+      color: var(--dim) !important;
+    }
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: var(--dark); }
+    ::-webkit-scrollbar-thumb { background: rgba(155,48,255,0.4); }
+    ::-webkit-scrollbar-thumb:hover { background: var(--purple); }
+
+    /* ── CATEGORY HEADER ── */
+    .category-header h3 {
+      font-family: 'Share Tech Mono', monospace !important;
+      font-size: 0.75rem !important;
+      letter-spacing: 0.3em !important;
+      text-transform: uppercase !important;
+      color: var(--purple) !important;
+    }
+
+    /* ── JUMBOTRON ── */
+    .jumbotron {
+      background-color: transparent !important;
+      border-bottom: 1px solid rgba(155,48,255,0.15) !important;
     }
   </style>
 </head>
@@ -532,15 +420,5 @@
 {{ Plugins.scripts }}
 
 {{ Configs.theme_footer }}
-
-<script>
-  // Occasional body glitch flicker
-  setInterval(() => {
-    if (Math.random() < 0.25) {
-      document.body.style.transform = `translate(${(Math.random()-0.5)*2}px, 0)`;
-      setTimeout(() => document.body.style.transform = '', 40);
-    }
-  }, 3000);
-</script>
 </body>
 </html>

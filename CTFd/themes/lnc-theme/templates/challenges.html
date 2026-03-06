@@ -1,6 +1,66 @@
 {% extends "base.html" %}
 
 {% block content %}
+<style>
+  .jumbotron {
+    background-color: transparent !important;
+    border-bottom: 1px solid rgba(155,48,255,0.15) !important;
+    padding-top: 48px !important;
+    padding-bottom: 24px !important;
+  }
+
+  .jumbotron h1 {
+    font-family: 'Orbitron', monospace !important;
+    font-weight: 900 !important;
+    color: #fff !important;
+    letter-spacing: 0.08em !important;
+  }
+
+  .category-header h3 {
+    font-family: 'Share Tech Mono', monospace !important;
+    font-size: 0.78rem !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.3em !important;
+    text-transform: uppercase !important;
+    color: #9b30ff !important;
+  }
+
+  .challenge-button {
+    background-color: #0a0f1a !important;
+    border: 1px solid rgba(155,48,255,0.2) !important;
+    border-top: 2px solid rgba(155,48,255,0.4) !important;
+    border-radius: 0 !important;
+    transition: border-color 0.2s, background-color 0.2s !important;
+  }
+
+  .challenge-button:hover {
+    background-color: rgba(155,48,255,0.08) !important;
+    border-top-color: #ff1a2e !important;
+    border-color: rgba(155,48,255,0.4) !important;
+  }
+
+  .challenge-solved {
+    border-top-color: #00ff88 !important;
+    background-color: rgba(0,255,136,0.04) !important;
+  }
+
+  .challenge-inner p {
+    font-family: 'Orbitron', monospace !important;
+    font-size: 0.78rem !important;
+    font-weight: 700 !important;
+    color: #fff !important;
+    margin-bottom: 10px !important;
+  }
+
+  .challenge-inner span {
+    font-family: 'Share Tech Mono', monospace !important;
+    font-size: 1.1rem !important;
+    color: #ff1a2e !important;
+  }
+
+  .spinner { color: #9b30ff !important; }
+</style>
+
   <div class="jumbotron">
     <div class="container">
       <h1>

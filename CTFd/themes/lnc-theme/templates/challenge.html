@@ -1,3 +1,98 @@
+<style>
+  .challenge-name {
+    font-family: 'Orbitron', monospace !important;
+    font-weight: 900 !important;
+    color: #fff !important;
+    letter-spacing: 0.05em !important;
+  }
+
+  .challenge-value {
+    font-family: 'Orbitron', monospace !important;
+    font-weight: 900 !important;
+    color: #ff1a2e !important;
+  }
+
+  .challenge-value::after {
+    content: ' pts';
+    font-size: 0.7em;
+    color: #4a5a6a;
+    font-weight: 400;
+  }
+
+  .challenge-tag {
+    font-family: 'Share Tech Mono', monospace !important;
+    font-size: 0.62rem !important;
+    letter-spacing: 0.12em !important;
+    border-radius: 0 !important;
+    background-color: rgba(0,212,255,0.1) !important;
+    color: #00d4ff !important;
+    border: 1px solid rgba(0,212,255,0.25) !important;
+    margin: 2px !important;
+  }
+
+  .challenge-attribution {
+    font-family: 'Share Tech Mono', monospace !important;
+    font-size: 0.65rem !important;
+    letter-spacing: 0.12em !important;
+    color: #4a5a6a !important;
+  }
+
+  .challenge-ratings {
+    font-family: 'Share Tech Mono', monospace !important;
+    font-size: 0.7rem !important;
+    color: #4a5a6a !important;
+  }
+
+  .challenge-desc {
+    display: block;
+    font-family: 'Rajdhani', sans-serif !important;
+    font-size: 0.95rem !important;
+    line-height: 1.7 !important;
+    color: #c8d8e8 !important;
+    border-left: 2px solid rgba(155,48,255,0.5);
+    padding-left: 12px;
+    margin-bottom: 16px;
+  }
+
+  .challenge-connection-info code {
+    font-family: 'Share Tech Mono', monospace !important;
+    color: #00d4ff !important;
+    background-color: rgba(0,212,255,0.07) !important;
+    border: 1px solid rgba(0,212,255,0.2) !important;
+    padding: 4px 10px !important;
+  }
+
+  .challenge-hints details {
+    margin-bottom: 8px;
+    border: 1px solid rgba(255,204,0,0.2);
+    background-color: rgba(255,204,0,0.03);
+  }
+
+  .challenge-hints summary {
+    font-family: 'Share Tech Mono', monospace !important;
+    font-size: 0.72rem !important;
+    letter-spacing: 0.1em !important;
+    color: #ffcc00 !important;
+    padding: 10px 14px !important;
+    cursor: pointer !important;
+  }
+
+  .challenge-hints details div {
+    padding: 12px 14px;
+    font-size: 0.88rem;
+    color: #c8d8e8;
+    line-height: 1.6;
+  }
+
+  .challenge-solution-content {
+    font-family: 'Share Tech Mono', monospace !important;
+    font-size: 0.82rem !important;
+    color: #c8d8e8 !important;
+    border-left: 2px solid rgba(0,212,255,0.4);
+    padding-left: 12px;
+  }
+</style>
+
 <div :class="getStyles()" role="document" x-data="Challenge" x-init='id = {{ challenge.id }}; max_attempts = {{ max_attempts }}; attempts = {{ attempts }}; ratingValue = {{ (rating.get("value") if rating else None) | tojson }}; ratingReview = {{ (rating.get("review", "") if rating else None) | tojson }};'>
   <div class="modal-content">
     <div class="modal-body py-4 px-4 px-sm-5">

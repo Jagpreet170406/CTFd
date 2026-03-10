@@ -1,6 +1,114 @@
 {% extends "base.html" %}
 
 {% block content %}
+<style>
+  .jumbotron {
+    background-color: transparent !important;
+    border-bottom: 1px solid rgba(155,48,255,0.15) !important;
+    padding-top: 48px !important;
+    padding-bottom: 24px !important;
+  }
+
+  .jumbotron h1 {
+    font-family: 'Orbitron', monospace !important;
+    font-weight: 900 !important;
+    color: #fff !important;
+    letter-spacing: 0.08em !important;
+  }
+
+  h5.text-muted, h6.text-muted {
+    font-family: 'Share Tech Mono', monospace !important;
+    font-size: 0.75rem !important;
+    letter-spacing: 0.1em !important;
+    color: #4a5a6a !important;
+  }
+
+  hr { border-color: rgba(155,48,255,0.15) !important; }
+
+  /* ── TABLE ── */
+  .table {
+    --bs-table-bg: transparent !important;
+    --bs-table-striped-bg: transparent !important;
+    --bs-table-hover-bg: transparent !important;
+    --bs-table-color: #c8d8e8 !important;
+    --bs-table-striped-color: #c8d8e8 !important;
+  }
+
+  .table thead tr {
+    border-bottom: 2px solid rgba(155,48,255,0.3) !important;
+  }
+
+  .table thead th {
+    font-family: 'Share Tech Mono', monospace !important;
+    font-size: 0.65rem !important;
+    letter-spacing: 0.25em !important;
+    text-transform: uppercase !important;
+    color: #4a5a6a !important;
+    font-weight: 400 !important;
+    background-color: transparent !important;
+    border: none !important;
+    padding: 12px 16px !important;
+  }
+
+  .table tbody tr {
+    border-bottom: 1px solid rgba(155,48,255,0.07) !important;
+    transition: background-color 0.15s !important;
+  }
+
+  .table-striped > tbody > tr:nth-of-type(odd) > * {
+    background-color: rgba(155,48,255,0.04) !important;
+    color: #c8d8e8 !important;
+    --bs-table-bg-type: transparent !important;
+  }
+
+  .table-striped > tbody > tr:nth-of-type(even) > * {
+    background-color: transparent !important;
+    color: #c8d8e8 !important;
+    --bs-table-bg-type: transparent !important;
+  }
+
+  .table tbody tr:hover > * {
+    background-color: rgba(155,48,255,0.08) !important;
+  }
+
+  .table tbody td {
+    font-family: 'Rajdhani', sans-serif !important;
+    font-size: 0.95rem !important;
+    color: #c8d8e8 !important;
+    padding: 14px 16px !important;
+    border: none !important;
+  }
+
+  .table tbody td a {
+    color: #00d4ff !important;
+    font-family: 'Orbitron', monospace !important;
+    font-size: 0.78rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.03em !important;
+  }
+
+  .table tbody td a:hover { color: #9b30ff !important; }
+
+  /* ── PAGINATION ── */
+  .page-select {
+    background-color: #0a0f1a !important;
+    border: 1px solid rgba(155,48,255,0.3) !important;
+    color: #c8d8e8 !important;
+    font-family: 'Share Tech Mono', monospace !important;
+    font-size: 0.72rem !important;
+    padding: 2px 8px !important;
+  }
+
+  .text-center a {
+    font-family: 'Share Tech Mono', monospace !important;
+    font-size: 0.72rem !important;
+    color: #9b30ff !important;
+    margin: 0 8px !important;
+  }
+
+  .text-center a:hover { color: #00d4ff !important; }
+</style>
+
   <div class="jumbotron">
     <div class="container">
       <h1>{% trans %}Teams{% endtrans %}</h1>

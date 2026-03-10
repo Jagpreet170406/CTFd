@@ -1,6 +1,33 @@
 {% extends "base.html" %}
 
 {% block content %}
+<style>
+  .jumbotron {
+    background-color: transparent !important;
+    border-bottom: 1px solid rgba(155,48,255,0.15) !important;
+    padding-top: 48px !important;
+    padding-bottom: 24px !important;
+  }
+
+  .jumbotron h1 {
+    font-family: 'Orbitron', monospace !important;
+    font-weight: 900 !important;
+    color: #fff !important;
+    letter-spacing: 0.08em !important;
+  }
+
+  .text-danger { color: #ff1a2e !important; }
+
+  .form-text.text-muted {
+    font-family: 'Rajdhani', sans-serif !important;
+    font-size: 0.82rem !important;
+    color: #4a5a6a !important;
+  }
+
+  .text-muted a { color: #9b30ff !important; }
+  .text-muted a:hover { color: #00d4ff !important; }
+</style>
+
   <div class="jumbotron">
     <div class="container">
       <h1>

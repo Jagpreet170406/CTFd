@@ -1,6 +1,153 @@
 {% extends "base.html" %}
 
 {% block content %}
+<style>
+  .jumbotron {
+    background-color: transparent !important;
+    border-bottom: 1px solid rgba(155,48,255,0.15) !important;
+    padding-top: 48px !important;
+    padding-bottom: 24px !important;
+  }
+
+  .jumbotron h1 {
+    font-family: 'Orbitron', monospace !important;
+    font-weight: 900 !important;
+    color: #fff !important;
+    letter-spacing: 0.08em !important;
+  }
+
+  /* ── BRACKET NAV PILLS ── */
+  .nav-pills .nav-link {
+    font-family: 'Share Tech Mono', monospace !important;
+    font-size: 0.72rem !important;
+    letter-spacing: 0.15em !important;
+    text-transform: uppercase !important;
+    color: #4a5a6a !important;
+    background-color: transparent !important;
+    border: 1px solid rgba(155,48,255,0.2) !important;
+    border-radius: 0 !important;
+    margin: 0 2px !important;
+    transition: all 0.2s !important;
+  }
+
+  .nav-pills .nav-link:hover {
+    color: #c8d8e8 !important;
+    border-color: rgba(155,48,255,0.4) !important;
+  }
+
+  .nav-pills .nav-link.active {
+    background-color: rgba(155,48,255,0.12) !important;
+    border-color: #9b30ff !important;
+    color: #fff !important;
+  }
+
+  /* ── TABLE ── */
+  .table {
+    --bs-table-bg: transparent !important;
+    --bs-table-striped-bg: transparent !important;
+    --bs-table-hover-bg: transparent !important;
+    --bs-table-color: #c8d8e8 !important;
+    --bs-table-striped-color: #c8d8e8 !important;
+  }
+
+  .table thead tr {
+    border-bottom: 2px solid rgba(155,48,255,0.3) !important;
+  }
+
+  .table thead th {
+    font-family: 'Share Tech Mono', monospace !important;
+    font-size: 0.65rem !important;
+    letter-spacing: 0.25em !important;
+    text-transform: uppercase !important;
+    color: #4a5a6a !important;
+    font-weight: 400 !important;
+    background-color: transparent !important;
+    border: none !important;
+    padding: 12px 16px !important;
+  }
+
+  .table tbody tr {
+    border-bottom: 1px solid rgba(155,48,255,0.07) !important;
+    transition: background-color 0.15s !important;
+  }
+
+  .table-striped > tbody > tr:nth-of-type(odd) > * {
+    background-color: rgba(155,48,255,0.04) !important;
+    color: #c8d8e8 !important;
+    --bs-table-bg-type: transparent !important;
+  }
+
+  .table-striped > tbody > tr:nth-of-type(even) > * {
+    background-color: transparent !important;
+    color: #c8d8e8 !important;
+    --bs-table-bg-type: transparent !important;
+  }
+
+  .table tbody tr:hover > * {
+    background-color: rgba(155,48,255,0.08) !important;
+  }
+
+  /* Top 3 accent */
+  .table tbody tr:nth-child(1) > * { border-left: 2px solid #ffcc00 !important; }
+  .table tbody tr:nth-child(2) > * { border-left: 2px solid #aaaacc !important; }
+  .table tbody tr:nth-child(3) > * { border-left: 2px solid #cd7f32 !important; }
+
+  .table tbody th {
+    font-family: 'Orbitron', monospace !important;
+    font-size: 1rem !important;
+    font-weight: 700 !important;
+    color: #fff !important;
+    padding: 14px 16px !important;
+  }
+
+  .table tbody td {
+    font-family: 'Rajdhani', sans-serif !important;
+    font-size: 0.95rem !important;
+    color: #c8d8e8 !important;
+    padding: 14px 16px !important;
+    border: none !important;
+  }
+
+  .table tbody td a {
+    color: #00d4ff !important;
+    font-family: 'Orbitron', monospace !important;
+    font-size: 0.82rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.03em !important;
+  }
+
+  .table tbody td a:hover { color: #9b30ff !important; }
+
+  /* Score column */
+  .table tbody td:last-child {
+    font-family: 'Orbitron', monospace !important;
+    font-weight: 700 !important;
+    color: #ff1a2e !important;
+    font-size: 1rem !important;
+  }
+
+  /* Empty state */
+  h3.text-muted {
+    font-family: 'Share Tech Mono', monospace !important;
+    font-size: 0.82rem !important;
+    letter-spacing: 0.2em !important;
+    color: #4a5a6a !important;
+  }
+
+  /* Bracket badge */
+  .badge.bg-secondary {
+    font-family: 'Share Tech Mono', monospace !important;
+    font-size: 0.58rem !important;
+    letter-spacing: 0.1em !important;
+    background-color: rgba(155,48,255,0.15) !important;
+    color: #9b30ff !important;
+    border: 1px solid rgba(155,48,255,0.3) !important;
+    border-radius: 0 !important;
+  }
+
+  .spinner { color: #9b30ff !important; }
+</style>
+
   <div class="jumbotron">
     <div class="container">
       <h1>
